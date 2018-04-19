@@ -1,5 +1,7 @@
 1.系统技术  
-    jooq + spring + jsonrpc + maven + quartz + c3p0 + redis + solr + activemq
+    1.jooq + spring + jsonrpc + maven + quartz + c3p0 + redis + solr + activemq
+	
+	2.系统带有数据库文件，在目录xwCore\src\main\resources\db\migration下，可以直接运行
 
 2.整体项目结构分三层：
 
@@ -147,11 +149,11 @@
 
 1).xwCommon:公共工具类库
 
-2).xwApi:服务接口暴露 ,业务实现
+2).xwApi:服务接口暴露 ,业务实现(war)
 
 3).xwConfig:系统配置
 
-4).xwTask:系统任务,任务处理
+4).xwTask:系统任务,任务处理(war)
 
 5).xwCore:按sql生成数据库表,按数据库表生成java类的文件，以及业务代码编写
 
@@ -159,4 +161,4 @@
 
 7).xwMq:消息队列模块
 
-8).xwPayBack:支付回调模块
+8).xwPayBack:支付回调模块(war)
