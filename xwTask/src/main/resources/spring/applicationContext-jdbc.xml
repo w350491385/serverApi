@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!-- c3p0数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" lazy-init="false">
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc.databaseurl}"/>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="maxIdleTime" value="30"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionProvider" class="org.jooq.spring.SpringTransactionProvider"/>
+
+    <bean id="transactionAwareDataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean name="connectionProvider" class="org.jooq.impl.DataSourceConnectionProvider">
+        <constructor-arg ref="transactionAwareDataSource"/>
+    </bean>
+
+    <bean id="dslContext" class="org.jooq.impl.DefaultDSLContext">
+        <constructor-arg ref="config"/>
+    </bean>
+
+    <bean id="exceptionTranslator" class="org.jooq.spring.exception.ExceptionTranslator"/>
+
+    <bean name="config" class="org.jooq.impl.DefaultConfiguration">
+        <property name="SQLDialect">
+            <value type="org.jooq.SQLDialect">MYSQL</value>
+        </property>
+        <property name="connectionProvider" ref="connectionProvider"/>
+        <property name="transactionProvider" ref="transactionProvider"/>
+        <property name="executeListenerProvider">
+            <array>
+                <bean class="org.jooq.impl.DefaultExecuteListenerProvider">
+                    <constructor-arg index="0" ref="exceptionTranslator"/>
+                </bean>
+            </array>
+        </property>
+    </bean>
+
+    <!-- 拦截器方式配置事物 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="append*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="edit*" propagation="REQUIRED"/>
+            <tx:method name="audit*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="repair*" propagation="REQUIRED"/>
+            <tx:method name="set*" propagation="REQUIRED"/>
+            <tx:method name="delAndRepair" propagation="REQUIRED"/>
+            <tx:method name="get*" propagation="SUPPORTS"/>
+            <tx:method name="query*" propagation="SUPPORTS"/>
+            <tx:method name="find*" propagation="SUPPORTS"/>
+            <tx:method name="load*" propagation="SUPPORTS"/>
+            <tx:method name="search*" propagation="SUPPORTS"/>
+            <tx:method name="*" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="transactionPointcut" expression="execution(* com.xw.service..*Impl.*(..))"/>
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"/>
+    </aop:config>
+</beans>

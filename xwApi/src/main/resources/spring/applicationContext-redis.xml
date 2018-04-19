@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置规范 ,id名称中必须带redis字符 -->
+    <bean id="redisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}" />
+        <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}" />
+        <property name="maxTotal" value="${redis.maxTotal}"/>
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+    </bean>
+
+    <bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="poolConfig" ref="redisPoolConfig"/>
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.password}"/>
+        <property name="usePool" value="${redis.usePool}"/>
+        <property name="timeout" value="${redis.timeout}"/>
+    </bean>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory"   ref="redisConnectionFactory" />
+    </bean>
+</beans>

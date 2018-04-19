@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- 配置规范 ,id名称中必须带solr字符 -->
+    <bean id="httpSolrClient" class="org.springframework.data.solr.server.support.HttpSolrClientFactoryBean">
+        <property name="url" value="${solr.url}"/>
+        <property name="timeout" value="${solr.timeout}"/>
+        <property name="maxConnections" value="${solr.maxConnections}"/>
+    </bean>
+
+    <bean id="solrTemplate" class="org.springframework.data.solr.core.SolrTemplate">
+        <constructor-arg ref="httpSolrClient"/>
+    </bean>
+
+    <bean id="simpleSolrRepository" class="com.xw.solr.SolrTestDataRepository">
+        <constructor-arg index="0" ref="solrTemplate"/>
+        <constructor-arg index="1"  type="java.lang.Class" value="com.xw.solr.bean.SolrTestData"/>
+    </bean>
+</beans>

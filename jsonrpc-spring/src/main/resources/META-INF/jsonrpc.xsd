@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://jsonrpc.com/schema/xw" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://jsonrpc.com/schema/xw"
+            xmlns:tool="http://www.springframework.org/schema/tool"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+    <xsd:import namespace="http://www.springframework.org/schema/tool"/>
+
+    <xsd:element name="jsonrpc">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xsd:element ref="method" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="serviceName" type="xsd:string" use="required"/>
+                    <xsd:attribute name="check" type="xsd:boolean" use="optional" default="true"/>
+                    <xsd:attribute name="interfaceClazz" type="xsd:token" use="optional">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <tool:annotation>
+                                    <tool:expected-type type="java.lang.Class"/>
+                                </tool:annotation>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="clazz" type="xsd:token" use="optional">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <tool:annotation>
+                                    <tool:expected-type type="java.lang.Class"/>
+                                </tool:annotation>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="ref" type="xsd:string" use="optional"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="methodType">
+        <xsd:attribute name="methodName" type="xsd:string" use="required"/>
+        <xsd:attribute name="check" type="xsd:boolean" use="optional" default="true"/>
+    </xsd:complexType>
+    <xsd:element name="method" type="methodType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The client method parameter ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>

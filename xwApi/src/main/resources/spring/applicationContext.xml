@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:component-scan base-package="com.xw"/>
+
+    <!-- 配置文件 -->
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:redis.properties</value>
+                <value>classpath:mq.properties</value>
+                <value>classpath:solr.properties</value>
+                <value>classpath:system-config.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jsonRpcMultiServerFactory" class="com.xw.spring.factory.JsonRpcMultiServerFactory"/>
+    <bean id="checkPowerFilter" class="com.xw.common.CheckPowerFilter"/>
+    <bean id="applicationContextUtils" class="com.utils.spring.ApplicationContextUtils"/>
+    <bean id="modelExceptionResolver" class="com.xw.exception.ModelExceptionResolver"/>
+
+    <import resource="classpath:spring/applicationContext-server.xml"/>
+    <import resource="classpath:spring/applicationContext-jdbc.xml"/>
+    <import resource="classpath:spring/applicationContext-redis.xml"/>
+    <import resource="classpath:spring/applicationContext-mq.xml"/>
+    <import resource="classpath:spring/applicationContext-solr.xml"/>
+</beans>

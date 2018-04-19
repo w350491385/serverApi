@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xwParent</artifactId>
+        <groupId>com.xw</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>jooq-spring</artifactId>
+    <version>${project.jooq-spring.version}</version>
+    <name>jooq-spring</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <org.jooq.version>3.6.1</org.jooq.version>
+        <project.jooq-spring.version>1.0-SNAPSHOT</project.jooq-spring.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>product</id>
+            <properties>
+                <project.jooq-spring.version>1.0</project.jooq-spring.version>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${org.jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xw</groupId>
+            <artifactId>utils-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

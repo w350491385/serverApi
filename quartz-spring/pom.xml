@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xwParent</artifactId>
+        <groupId>com.xw</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <version>${project.quartz-spring.version}</version>
+    <artifactId>quartz-spring</artifactId>
+    <name>quartz-spring</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.2.6.RELEASE</spring.version>
+        <project.quartz-spring.version>1.0-SNAPSHOT</project.quartz-spring.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>product</id>
+            <properties>
+                <project.quartz-spring.version>1.0</project.quartz-spring.version>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xw</groupId>
+            <artifactId>utils-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--专业的任务调度包-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>c3p0</groupId>
+                    <artifactId>c3p0</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+    </dependencies>
+
+</project>

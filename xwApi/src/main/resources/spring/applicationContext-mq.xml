@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- 配置规范 ,id名称中必须带mq或者jms字符 -->
+    <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+    <bean id="mqTargetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <!-- ActiveMQ服务地址 -->
+        <property name="brokerURL" value="${mq.brokerURL}"/>
+        <property name="userName" value="${mq.userName}"/>
+        <property name="password" value="${mq.password}"/>
+        <property name="sendTimeout" value="${mq.sendTimeout}"/>
+    </bean>
+
+    <!-- ActiveMQ为我们提供了一个PooledConnectionFactory，通过往里面注入一个ActiveMQConnectionFactory 可以用来将Connection、Session和MessageProducer池化，这样可以大大的减少我们的资源消耗。 要依赖于 activemq-pool包 -->
+    <bean id="mqPooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="connectionFactory" ref="mqTargetConnectionFactory"/>
+        <property name="maxConnections" value="${mq.maxConnections}"/>
+        <property name="idleTimeout" value="${mq.idleTimeout}"/>
+        <property name="expiryTimeout" value="${mq.expiryTimeout}"/>
+    </bean>
+
+    <!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
+    <bean id="mqConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->
+        <property name="targetConnectionFactory" ref="mqPooledConnectionFactory"/>
+    </bean>
+
+    <!-- Spring提供的JMS工具类，它可以进行消息发送、接收等 -->
+    <!-- 短信通知队列模板 -->
+    <bean id="smsJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
+        <property name="connectionFactory" ref="mqConnectionFactory"/>
+        <property name="defaultDestinationName"  value="${mq.sms.queueName}"></property>
+        <property name="deliveryMode" value="2"/>
+    </bean>
+</beans>

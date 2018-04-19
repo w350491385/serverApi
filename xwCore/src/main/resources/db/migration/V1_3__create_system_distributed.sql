@@ -1,0 +1,59 @@
+CREATE TABLE `distributed_task_data`(
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `business_type` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '业务类型',
+  `business_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '业务id',
+  `status` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '0:默认(未处理),1:已被获取,2:正常完成,3:异常',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '创建时间',
+  `next_send_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '下个执行时间',
+  `exe_num` INT(11) NOT NULL DEFAULT 0 COMMENT '执行次数',
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `ack_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ack时间',
+  `exception_text` TEXT COMMENT '异常信息',
+  `ip` VARCHAR(20) NOT NULL DEFAULT '' COMMENT 'ip地址',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `distributed_task_data_bak`(
+  `id` BIGINT(20) NOT NULL COMMENT '主键',
+  `business_type` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '业务类型',
+  `business_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '业务id',
+  `status` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '0:默认(未处理),1:已被获取,2:正常完成,3:异常',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '创建时间',
+  `next_send_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '下个执行时间',
+  `exe_num` INT(11) NOT NULL DEFAULT 0 COMMENT '执行次数',
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `ack_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ack时间',
+  `exception_text` TEXT COMMENT '异常信息',
+  `backup_time`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '备份时间',
+  `ip` VARCHAR(20) NOT NULL DEFAULT '' COMMENT 'ip地址'
+) ENGINE=INNODB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `ack_task_data`(
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `business_type` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '业务类型',
+  `business_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '业务id',
+  `status` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '0:默认(未处理),1:已发送确认消息,2:正常完成,3:异常',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '创建时间',
+  `next_send_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '下个执行时间',
+  `exe_num` INT(11) NOT NULL DEFAULT 0 COMMENT '执行次数',
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `exception_text` TEXT COMMENT '异常信息',
+  `ip` VARCHAR(20) NOT NULL DEFAULT '' COMMENT 'ip地址',
+  `url` VARCHAR(200) NOT NULL DEFAULT '' COMMENT 'url请求地址',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `ack_task_data_bak`(
+  `id` BIGINT(20) NOT NULL COMMENT '主键',
+  `business_type` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '业务类型',
+  `business_id` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '业务id',
+  `status` TINYINT(2) NOT NULL DEFAULT 0 COMMENT '0:默认(未处理),1:已发送确认消息,2:正常完成,3:异常',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '创建时间',
+  `next_send_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '下个执行时间',
+  `exe_num` INT(11) NOT NULL DEFAULT 0 COMMENT '执行次数',
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `exception_text` TEXT COMMENT '异常信息',
+  `ip` VARCHAR(20) NOT NULL DEFAULT '' COMMENT 'ip地址',
+  `url` VARCHAR(200) NOT NULL DEFAULT '' COMMENT 'url请求地址',
+  `backup_time`  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '备份时间'
+) ENGINE=INNODB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

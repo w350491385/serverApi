@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xw="http://jsonrpc.com/schema/xw"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://jsonrpc.com/schema/xw
+    	http://jsonrpc.com/schema/xw/jsonrpc.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置规范 ,id名称中必须带api字符 -->
+    <bean id="bookApiService" class="com.xw.api.book.BookApiService"/>
+    <xw:jsonrpc serviceName="book"  check="true" ref="bookApiService">
+        <xw:method methodName="add" check="true"/>
+    </xw:jsonrpc>
+
+</beans>

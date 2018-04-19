@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xwParent</artifactId>
+        <groupId>com.xw</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>xwCore</artifactId>
+
+    <name>xwJooq</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <db.url>jdbc:mysql://127.0.0.1:3306</db.url>
+        <db.username>root</db.username>
+        <db.password></db.password>
+        <db.schema>recruit</db.schema>
+        <mysql-version>5.1.40</mysql-version>
+    </properties>
+
+    <dependencies>
+        <!--MySQL JDBC driver, 数据库迁移等情况下需要. -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xw</groupId>
+            <artifactId>jooq-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xw</groupId>
+            <artifactId>xwMq</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xw</groupId>
+            <artifactId>quartz-spring</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--数据库迁移, 同步的插件 -->
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.0</version>
+                <!-- Note that we're executing the Flyway plugin in the "generate-sources" phase -->
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <!-- Note that we need to prefix the db/migration path with filesystem:
+                to prevent Flyway from looking for our migration scripts only on the classpath -->
+                <configuration>
+                    <url>${db.url}</url>
+                    <user>${db.username}</user>
+                    <password>${db.password}</password>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <schemas>
+                        <schema>${db.schema}</schema>
+                    </schemas>
+                    <locations>
+                        <location>filesystem:src/main/resources/db/migration</location>
+                    </locations>
+                </configuration>
+            </plugin>
+
+            <!--数据库代码生成的插件 -->
+            <plugin>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq-codegen-maven</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jdbc>
+                        <driver>com.mysql.jdbc.Driver</driver>
+                        <url>${db.url}</url>
+                        <user>${db.username}</user>
+                        <password>${db.password}</password>
+                    </jdbc>
+                    <!-- Generator parameters -->
+                    <generator>
+                        <database>
+                            <name>org.jooq.util.mysql.MySQLDatabase</name>
+                            <includes>.*</includes>
+                            <inputSchema>${db.schema}</inputSchema>
+                            <!-- Associate data type rewrites with database columns -->
+                            <forcedTypes>
+                                <forcedType>
+                                    <!-- Specify any data type from org.jooq.impl.SQLDataType -->
+                                    <name>BOOLEAN</name>
+                                    <expression>.*\.HANDMADE</expression>
+                                    <types>.*</types>
+                                </forcedType>
+                            </forcedTypes>
+                        </database>
+                        <target>
+                            <packageName>com.common.generated</packageName>
+                            <directory>src/main/java</directory>
+                        </target>
+                    </generator>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:component-scan base-package="com.xw"/>
+    <!-- 获取 applicationContext -->
+    <bean class="com.utils.spring.ApplicationContextUtils"/>
+    <!-- 任务初始化容器 -->
+    <bean class="com.xw.task.init.TaskInitContainer"/>
+    <!-- 任务配置改变监听器 -->
+    <bean class="com.xw.task.common.TaskChangeListener">
+        <property name="initialDelay" value="100"/>
+        <property name="delay" value="20"/>
+    </bean>
+
+    <!-- 配置文件 -->
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:system-config.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <import resource="classpath:spring/applicationContext-jdbc.xml"/>
+</beans>
