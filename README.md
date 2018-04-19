@@ -1,4 +1,5 @@
 1.系统技术  
+
     1.jooq + spring + jsonrpc + maven + quartz + c3p0 + redis + solr + activemq
 	
 	2.系统带有数据库文件，在目录xwCore\src\main\resources\db\migration下，可以直接运行
