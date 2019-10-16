@@ -155,7 +155,7 @@
 
 3).xwConfig:系统配置
 
-4).xwTask:系统任务,任务处理(war)
+4).xwTask:系统任务,任务处理(war)  tomcat7:run
 
 5).xwCore:按sql生成数据库表,按数据库表生成java类的文件，以及业务代码编写
 

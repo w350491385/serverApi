@@ -1,6 +1,7 @@
 package com.xw.task.init;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utils.spring.ApplicationContextUtils;
 import com.xw.task.common.QuartzScheduleMgr;
 import com.xw.task.server.SystemTaskDataService;
@@ -43,6 +44,7 @@ public class TaskInitContainer implements InitializingBean,ApplicationListener {
         try {
             List<SystemTaskData> list = taskDataService.list();
             Scheduler scheduler = QuartzScheduleMgr.getInstanceScheduler();
+            logger.info("------SystemTaskData list------{}",new ObjectMapper().writeValueAsString(list));
             if (list == null || list.size() == 0) {
                 throw new RuntimeException("init task list is null");
             }

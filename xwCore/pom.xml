@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <db.url>jdbc:mysql://127.0.0.1:3306</db.url>
         <db.username>root</db.username>
-        <db.password></db.password>
+        <db.password>123456</db.password>
         <db.schema>recruit</db.schema>
         <mysql-version>5.1.40</mysql-version>
     </properties>

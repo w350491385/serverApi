@@ -2316,3 +2316,242 @@ Caused by: java.lang.ClassNotFoundException: org.springframework.beans.factory.c
 [INFO] [2018-04-18 18:09:31][org.quartz.core.QuartzScheduler]Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
 [INFO] [2018-04-18 18:09:31][com.xw.task.init.TaskInitContainer]-------------end init task---------------
 [INFO] [2018-04-18 18:09:32][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@64bf3bbf: startup date [Wed Apr 18 18:09:14 CST 2018]; root of context hierarchy
+[INFO] [2019-10-16 20:11:42][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2019-10-16 20:11:42][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Oct 16 20:11:42 CST 2019]; root of context hierarchy
+[INFO] [2019-10-16 20:11:42][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext.xml]
+[INFO] [2019-10-16 20:11:42][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext-jdbc.xml]
+[INFO] [2019-10-16 20:11:43][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2019-10-16 20:11:43][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [system-config.properties]
+[INFO] [2019-10-16 20:11:43][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2019-10-16 20:11:43][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2019-10-16 20:11:43][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO] [2019-10-16 20:12:22][com.xw.task.init.TaskInitContainer]-------------start init task---------------
+[INFO] [2019-10-16 20:12:22][org.jooq.Constants]
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.6.1
+                                      
+[INFO] [2019-10-16 20:12:22][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1b61bxwa51myewelntmro9|18b2e31a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1b61bxwa51myewelntmro9|18b2e31a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/recruit?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 30, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2019-10-16 20:12:22][org.quartz.impl.StdSchedulerFactory]Using default implementation for ThreadExecutor
+[INFO] [2019-10-16 20:12:22][org.quartz.simpl.SimpleThreadPool]Job execution threads will use class loader of thread: localhost-startStop-1
+[INFO] [2019-10-16 20:12:22][org.quartz.core.SchedulerSignalerImpl]Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO] [2019-10-16 20:12:22][org.quartz.core.QuartzScheduler]Quartz Scheduler v.2.2.2 created.
+[INFO] [2019-10-16 20:12:22][org.quartz.simpl.RAMJobStore]RAMJobStore initialized.
+[INFO] [2019-10-16 20:12:22][org.quartz.core.QuartzScheduler]Scheduler meta-data: Quartz Scheduler (v2.2.2) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO] [2019-10-16 20:12:22][org.quartz.impl.StdSchedulerFactory]Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+[INFO] [2019-10-16 20:12:22][org.quartz.impl.StdSchedulerFactory]Quartz scheduler version: 2.2.2
+[INFO] [2019-10-16 20:12:22][org.quartz.core.QuartzScheduler]JobFactory set to: com.xw.task.factory.SpringJobFactory@762e721a
+[INFO] [2019-10-16 20:12:22][org.quartz.core.QuartzScheduler]Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+[INFO] [2019-10-16 20:12:22][com.xw.task.init.TaskInitContainer]-------------end init task---------------
+[INFO] [2019-10-16 20:12:22][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 40486 ms
+[INFO] [2019-10-16 20:20:18][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2019-10-16 20:20:19][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Oct 16 20:20:19 CST 2019]; root of context hierarchy
+[INFO] [2019-10-16 20:20:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext.xml]
+[INFO] [2019-10-16 20:20:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext-jdbc.xml]
+[INFO] [2019-10-16 20:20:19][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2019-10-16 20:20:19][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [system-config.properties]
+[INFO] [2019-10-16 20:20:19][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2019-10-16 20:20:19][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2019-10-16 20:20:19][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO] [2019-10-16 20:20:35][com.xw.task.init.TaskInitContainer]-------------start init task---------------
+[INFO] [2019-10-16 20:20:35][org.jooq.Constants]
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.6.1
+                                      
+[INFO] [2019-10-16 20:20:35][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1b61bxwa51mypyr618jnesg|51fc3c6c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1b61bxwa51mypyr618jnesg|51fc3c6c, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/recruit?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 30, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2019-10-16 20:20:36][org.quartz.impl.StdSchedulerFactory]Using default implementation for ThreadExecutor
+[INFO] [2019-10-16 20:20:36][org.quartz.simpl.SimpleThreadPool]Job execution threads will use class loader of thread: localhost-startStop-1
+[INFO] [2019-10-16 20:20:36][org.quartz.core.SchedulerSignalerImpl]Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO] [2019-10-16 20:20:36][org.quartz.core.QuartzScheduler]Quartz Scheduler v.2.2.2 created.
+[INFO] [2019-10-16 20:20:36][org.quartz.simpl.RAMJobStore]RAMJobStore initialized.
+[INFO] [2019-10-16 20:20:36][org.quartz.core.QuartzScheduler]Scheduler meta-data: Quartz Scheduler (v2.2.2) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO] [2019-10-16 20:20:36][org.quartz.impl.StdSchedulerFactory]Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+[INFO] [2019-10-16 20:20:36][org.quartz.impl.StdSchedulerFactory]Quartz scheduler version: 2.2.2
+[INFO] [2019-10-16 20:20:36][org.quartz.core.QuartzScheduler]JobFactory set to: com.xw.task.factory.SpringJobFactory@7f16b15
+[INFO] [2019-10-16 20:20:36][org.quartz.core.QuartzScheduler]Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+[INFO] [2019-10-16 20:20:36][com.xw.task.init.TaskInitContainer]-------------end init task---------------
+[INFO] [2019-10-16 20:20:36][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 17304 ms
+[INFO] [2019-10-16 20:23:25][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2019-10-16 20:23:25][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Oct 16 20:23:25 CST 2019]; root of context hierarchy
+[INFO] [2019-10-16 20:23:25][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext.xml]
+[INFO] [2019-10-16 20:23:25][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext-jdbc.xml]
+[INFO] [2019-10-16 20:23:25][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2019-10-16 20:23:25][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [system-config.properties]
+[INFO] [2019-10-16 20:23:25][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2019-10-16 20:23:25][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2019-10-16 20:23:25][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO] [2019-10-16 20:23:43][com.xw.task.init.TaskInitContainer]-------------start init task---------------
+[INFO] [2019-10-16 20:23:44][org.jooq.Constants]
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.6.1
+                                      
+[INFO] [2019-10-16 20:23:44][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1b61bxwa51mytyi1xnbiy9|51179dfc, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1b61bxwa51mytyi1xnbiy9|51179dfc, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/recruit?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 30, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2019-10-16 20:23:44][org.quartz.impl.StdSchedulerFactory]Using default implementation for ThreadExecutor
+[INFO] [2019-10-16 20:23:44][org.quartz.simpl.SimpleThreadPool]Job execution threads will use class loader of thread: localhost-startStop-1
+[INFO] [2019-10-16 20:23:44][org.quartz.core.SchedulerSignalerImpl]Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO] [2019-10-16 20:23:44][org.quartz.core.QuartzScheduler]Quartz Scheduler v.2.2.2 created.
+[INFO] [2019-10-16 20:23:44][org.quartz.simpl.RAMJobStore]RAMJobStore initialized.
+[INFO] [2019-10-16 20:23:44][org.quartz.core.QuartzScheduler]Scheduler meta-data: Quartz Scheduler (v2.2.2) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO] [2019-10-16 20:23:44][org.quartz.impl.StdSchedulerFactory]Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+[INFO] [2019-10-16 20:23:44][org.quartz.impl.StdSchedulerFactory]Quartz scheduler version: 2.2.2
+[INFO] [2019-10-16 20:23:44][org.quartz.core.QuartzScheduler]JobFactory set to: com.xw.task.factory.SpringJobFactory@140ec8e6
+[INFO] [2019-10-16 20:23:44][com.xw.task.init.TaskInitContainer]------SystemTaskData list------[{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/15 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1524022734000,"status":0}]
+[INFO] [2019-10-16 20:23:44][org.quartz.core.QuartzScheduler]Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+[INFO] [2019-10-16 20:23:45][com.xw.task.init.TaskInitContainer]-------------end init task---------------
+[INFO] [2019-10-16 20:23:45][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 19805 ms
+[INFO] [2019-10-16 20:24:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:24:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:24:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:25:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:25:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:25:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:26:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:26:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:26:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/15 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228811000,"status":0}]
+[INFO] [2019-10-16 20:26:55][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/15 * * * * ?,status is 0
+[INFO] [2019-10-16 20:27:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:27:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:27:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:28:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228879000,"status":2}]
+[INFO] [2019-10-16 20:28:15][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/5 * * * * ?,status is 2
+[INFO] [2019-10-16 20:28:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:28:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228925000,"status":0}]
+[INFO] [2019-10-16 20:28:55][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/5 * * * * ?,status is 0
+[INFO] [2019-10-16 20:29:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:29:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228962000,"status":1}]
+[INFO] [2019-10-16 20:29:35][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/5 * * * * ?,status is 1
+[INFO] [2019-10-16 20:29:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:30:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228996000,"status":0}]
+[INFO] [2019-10-16 20:30:15][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/5 * * * * ?,status is 0
+[INFO] [2019-10-16 20:30:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:30:55][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:31:15][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:31:35][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:32:27][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2019-10-16 20:32:27][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Oct 16 20:32:27 CST 2019]; root of context hierarchy
+[INFO] [2019-10-16 20:32:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext.xml]
+[INFO] [2019-10-16 20:32:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/applicationContext-jdbc.xml]
+[INFO] [2019-10-16 20:32:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2019-10-16 20:32:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [system-config.properties]
+[INFO] [2019-10-16 20:32:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2019-10-16 20:32:28][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2019-10-16 20:32:28][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+[INFO] [2019-10-16 20:33:07][com.xw.task.init.TaskInitContainer]-------------start init task---------------
+[INFO] [2019-10-16 20:33:07][org.jooq.Constants]
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.6.1
+                                      
+[INFO] [2019-10-16 20:33:07][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1b61bxwa51mz5kwe1mahsjk|480e7022, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1b61bxwa51mz5kwe1mahsjk|480e7022, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/recruit?useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 30, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 10, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+[INFO] [2019-10-16 20:33:08][org.quartz.impl.StdSchedulerFactory]Using default implementation for ThreadExecutor
+[INFO] [2019-10-16 20:33:08][org.quartz.simpl.SimpleThreadPool]Job execution threads will use class loader of thread: localhost-startStop-1
+[INFO] [2019-10-16 20:33:08][org.quartz.core.SchedulerSignalerImpl]Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO] [2019-10-16 20:33:08][org.quartz.core.QuartzScheduler]Quartz Scheduler v.2.2.2 created.
+[INFO] [2019-10-16 20:33:08][org.quartz.simpl.RAMJobStore]RAMJobStore initialized.
+[INFO] [2019-10-16 20:33:08][org.quartz.core.QuartzScheduler]Scheduler meta-data: Quartz Scheduler (v2.2.2) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO] [2019-10-16 20:33:08][org.quartz.impl.StdSchedulerFactory]Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+[INFO] [2019-10-16 20:33:08][org.quartz.impl.StdSchedulerFactory]Quartz scheduler version: 2.2.2
+[INFO] [2019-10-16 20:33:08][org.quartz.core.QuartzScheduler]JobFactory set to: com.xw.task.factory.SpringJobFactory@751f79c2
+[INFO] [2019-10-16 20:33:08][com.xw.task.init.TaskInitContainer]------SystemTaskData list------[{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571228996000,"status":0}]
+[INFO] [2019-10-16 20:33:08][org.quartz.core.QuartzScheduler]Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+[INFO] [2019-10-16 20:33:08][com.xw.task.init.TaskInitContainer]-------------end init task---------------
+[INFO] [2019-10-16 20:33:08][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 41032 ms
+[INFO] [2019-10-16 20:33:38][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:33:58][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/15 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571229229000,"status":0}]
+[INFO] [2019-10-16 20:33:58][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/15 * * * * ?,status is 0
+[INFO] [2019-10-16 20:34:18][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:34:38][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/15 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571229265000,"status":2}]
+[INFO] [2019-10-16 20:34:38][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/15 * * * * ?,status is 2
+[INFO] [2019-10-16 20:34:58][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 0 ,change list []
+[INFO] [2019-10-16 20:35:18][com.xw.task.common.TaskChangeListener]taskChangeListener query task data`s size is 1 ,change list [{"id":4,"bizCode":"ackTask","fullClass":"com.xw.task.AckTask","createTime":1524022734000,"corn":"0/5 * * * * ?","name":"ackTask","groupName":"system","triggerName":"systemAckTask","updateTime":1571229317000,"status":0}]
+[INFO] [2019-10-16 20:35:18][com.xw.task.common.TaskChangeListener]fullclass is com.xw.task.AckTask,corn is 0/5 * * * * ?,status is 0

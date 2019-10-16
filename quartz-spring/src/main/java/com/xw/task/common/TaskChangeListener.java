@@ -1,5 +1,7 @@
 package com.xw.task.common;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.utils.spring.ApplicationContextUtils;
 import com.xw.task.server.SystemTaskDataService;
 import com.xw.task.task.AbstractTask;
@@ -39,7 +41,11 @@ public class TaskChangeListener implements ApplicationListener,DisposableBean {
                         SystemTaskDataService taskDataService = (SystemTaskDataService) ApplicationContextUtils.applicationContext.getBean(SystemTaskDataService.class);
                         List<SystemTaskData> list = taskDataService.queryTaskData(currentTime[0],tempCurrentTime);//不包含结尾时间[startTime,endTime)
                         int size = list != null && list.size() > 0 ? list.size() : 0 ;
-                        logger.debug("taskChangeListener query task data`s size is " + size);
+                        try {
+                            logger.info("taskChangeListener query task data`s size is {} ,change list {}" , size,new ObjectMapper().writeValueAsString(list));
+                        } catch (JsonProcessingException e) {
+                            logger.error("",e);
+                        }
                         if (size > 0){
                             changeTask(list);
                         }
@@ -56,7 +62,7 @@ public class TaskChangeListener implements ApplicationListener,DisposableBean {
     private void changeTask(List<SystemTaskData> list) {
         Scheduler scheduler = QuartzScheduleMgr.getInstanceScheduler();
         for (SystemTaskData systemTaskData : list){
-            logger.debug("fullclass is {},corn is {},status is {}", systemTaskData.getFullClass(), systemTaskData.getCorn(), systemTaskData.getStatus());
+            logger.info("fullclass is {},corn is {},status is {}", systemTaskData.getFullClass(), systemTaskData.getCorn(), systemTaskData.getStatus());
             TriggerKey triggerKey = new TriggerKey(systemTaskData.getGroupName(), systemTaskData.getGroupName());
             JobKey jobKey = new JobKey(systemTaskData.getName(), systemTaskData.getGroupName());
             if (systemTaskData.getStatus() == 0){//正常运行
@@ -89,22 +95,17 @@ public class TaskChangeListener implements ApplicationListener,DisposableBean {
 
     private void runJob(Scheduler scheduler, SystemTaskData systemTaskData, TriggerKey triggerKey, JobKey jobKey) {
         try {
-            if (scheduler.getJobDetail(jobKey) != null) {//当job存在时
-                Trigger trigger = TriggerBuilder.newTrigger().withIdentity(systemTaskData.getTriggerName(), systemTaskData.getGroupName())
-                        .startNow()
-                        .withSchedule(CronScheduleBuilder.cronSchedule(systemTaskData.getCorn()))
-                        .build();
-                scheduler.rescheduleJob(triggerKey, trigger);
-            }else {//job不存在时
-                Class<? extends AbstractTask> jobClass = (Class<? extends AbstractTask>) Class.forName(systemTaskData.getFullClass());
-                JobDetail job = JobBuilder.newJob(jobClass).withIdentity(systemTaskData.getName(), systemTaskData.getGroupName())
-                        .usingJobData("biz_code", systemTaskData.getBizCode()).build();
-                Trigger newTrigger = TriggerBuilder.newTrigger().withIdentity(systemTaskData.getTriggerName(), systemTaskData.getGroupName())
-                        .startNow()
-                        .withSchedule(CronScheduleBuilder.cronSchedule(systemTaskData.getCorn()))
-                        .build();
-                scheduler.scheduleJob(job, newTrigger);//设置调度相关的Job
+            if (scheduler.getJobDetail(jobKey) != null) {//当job存在时,刪除之前的。
+                scheduler.deleteJob(jobKey);
             }
+            Class<? extends AbstractTask> jobClass = (Class<? extends AbstractTask>) Class.forName(systemTaskData.getFullClass());
+            JobDetail job = JobBuilder.newJob(jobClass).withIdentity(systemTaskData.getName(), systemTaskData.getGroupName())
+                    .usingJobData("biz_code", systemTaskData.getBizCode()).build();
+            Trigger newTrigger = TriggerBuilder.newTrigger().withIdentity(systemTaskData.getTriggerName(), systemTaskData.getGroupName())
+                    .startNow()
+                    .withSchedule(CronScheduleBuilder.cronSchedule(systemTaskData.getCorn()))
+                    .build();
+            scheduler.scheduleJob(job, newTrigger);//设置调度相关的Job
         } catch (SchedulerException |ClassNotFoundException e) {
             logger.error("",e);
         }

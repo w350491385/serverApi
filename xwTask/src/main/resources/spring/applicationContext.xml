@@ -14,7 +14,7 @@
     <bean class="com.xw.task.init.TaskInitContainer"/>
     <!-- 任务配置改变监听器 -->
     <bean class="com.xw.task.common.TaskChangeListener">
-        <property name="initialDelay" value="100"/>
+        <property name="initialDelay" value="30"/>
         <property name="delay" value="20"/>
     </bean>
 
